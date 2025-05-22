@@ -1,0 +1,25 @@
+{
+  "tasks": {
+    "dev": {
+      "dependencies": [
+        "dev:css",
+        "dev:serve"
+      ]
+    },
+    "dev:css": "deno run -A --node-modules-dir --no-lock npm:@tailwindcss/cli -i ./src/app.css -o ./static/styles.css --watch",
+    "dev:serve": "deno serve --watch-hmr -R --host=localhost src/main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.13",
+    "basecoat-css": "npm:basecoat-css@^0.1.2",
+    "hono": "npm:hono@^4.7.10",
+    "tailwindcss": "npm:tailwindcss@^4.1.7"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "hono/jsx"
+  },
+  "unstable": [
+    "temporal"
+  ]
+}

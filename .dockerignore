@@ -1,0 +1,6 @@
+**
+
+!/src/**
+!/static/**
+!/deno.json
+!/deno.lock
