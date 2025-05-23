@@ -10,6 +10,7 @@
     "dev:serve": "deno serve --watch-hmr -R --host=localhost src/main.ts"
   },
   "imports": {
+    "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     "@std/assert": "jsr:@std/assert@^1.0.13",
     "basecoat-css": "npm:basecoat-css@^0.1.2",
     "hono": "npm:hono@^4.7.10",

@@ -3,6 +3,7 @@
   "specifiers": {
     "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/internal@^1.0.6": "1.0.7",
+    "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:basecoat-css@~0.1.2": "0.1.2",
     "npm:hono@^4.7.10": "4.7.10",
     "npm:tailwindcss@^4.1.7": "4.1.7"
@@ -19,6 +20,9 @@
     }
   },
   "npm": {
+    "@opentelemetry/api@1.9.0": {
+      "integrity": "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="
+    },
     "basecoat-css@0.1.2": {
       "integrity": "sha512-nKlo9u7rLE7POTet5rId1Q8xjzHCqGxqRJxvF6qC7DY3ZgDDtEkLCYQN23Rluk2VMg/HPqWWf4+6rS49rXLzLw=="
     },
@@ -32,6 +36,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@^1.0.13",
+      "npm:@opentelemetry/api@^1.9.0",
       "npm:basecoat-css@~0.1.2",
       "npm:hono@^4.7.10",
       "npm:tailwindcss@^4.1.7"
