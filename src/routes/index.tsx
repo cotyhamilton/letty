@@ -72,7 +72,6 @@ app.get("/", (c) => {
                 id="subtract"
                 type="button"
                 class="btn"
-                onclick="count.value -= 1"
               >
                 -1
               </button>
@@ -81,7 +80,6 @@ app.get("/", (c) => {
                 id="add"
                 type="button"
                 class="btn"
-                onclick="count.value += 1"
               >
                 +1
               </button>
