@@ -13,3 +13,11 @@ app.use("*", serveStatic({ root: "./static" }));
 app.route("/", routes);
 
 export default app;
+
+// for now, this is a hack for deno deploy v2
+// deno run -RN src/main.ts --run
+if (import.meta.main) {
+  if (Deno.args.includes("--run")) {
+    Deno.serve(app.fetch);
+  }
+}
