@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { csrf } from "hono/csrf";
 import { serveStatic } from "hono/deno";
+import { logger } from "hono/logger";
 import { trace } from "@opentelemetry/api";
 import index from "./app.tsx";
 import routes from "./routes/mod.ts";
@@ -8,6 +9,7 @@ import routes from "./routes/mod.ts";
 const app = new Hono();
 
 app.use(csrf());
+app.use(logger());
 app.use(index);
 
 app.use(async (c, next) => {
