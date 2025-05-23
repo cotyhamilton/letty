@@ -2,6 +2,8 @@
 
 A typescript project template based on traditional web practices
 
+https://letty.cotyhamilton.deno.net/
+
 ## features
 
 - SSR via JSX templating
