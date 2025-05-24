@@ -18,6 +18,16 @@ Run the development server
 deno task dev
 ```
 
+Test
+
+```bash
+# unit tests
+deno test
+# e2e tests
+deno run -A npm:playwright install --with-deps
+deno task test:e2e
+```
+
 Serve production
 
 ```bash
