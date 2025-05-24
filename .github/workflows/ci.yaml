@@ -32,6 +32,14 @@ jobs:
         run: |
           deno check
 
-      - name: Test
+      - name: Unit Tests
         run: |
           deno test
+
+      - name: Prepare Playwright
+        run: |
+          deno run -A npm:playwright install --with-deps chromium
+
+      - name: E2E Tests
+        run: |
+          deno task test:e2e
