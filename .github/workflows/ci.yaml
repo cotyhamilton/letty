@@ -38,7 +38,7 @@ jobs:
 
       - name: Prepare Playwright
         run: |
-          deno run -A npm:playwright install --with-deps
+          deno run -A npm:playwright install --with-deps chromium
 
       - name: E2E Tests
         run: |
