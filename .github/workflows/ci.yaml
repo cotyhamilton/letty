@@ -32,6 +32,11 @@ jobs:
         run: |
           deno check
 
-      - name: Test
+      - name: Unit Tests
         run: |
           deno test
+
+      - name: E2E Tests
+        run: |
+          deno run -A npm:playwright install --with-deps
+          deno task test:e2e
