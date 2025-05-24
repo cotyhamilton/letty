@@ -8,7 +8,7 @@
     },
     "dev:css": "deno run -A --node-modules-dir --no-lock npm:@tailwindcss/cli -i ./src/app.css -o ./static/styles.css --watch",
     "dev:serve": "deno serve --watch-hmr -R --host=localhost src/main.ts",
-    "test:e2e": "deno run -A --node-modules-dir npm:playwright test"
+    "test:e2e": "deno run -A --node-modules-dir --no-lock npm:playwright test"
   },
   "imports": {
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
