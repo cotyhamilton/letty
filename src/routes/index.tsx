@@ -118,6 +118,36 @@ app.get("/", (c) => {
             </div>
 
             <hr />
+
+            <h2 class="text-3xl font-bold mb-6">api routes</h2>
+            <div class="mt-12">
+              <button
+                id="getDate"
+                type="button"
+                class="btn"
+              >
+                get data from <pre>/api/date</pre>
+              </button>
+              <pre
+                id="dateText"
+                class="text-start border bg-muted p-4 mt-8 rounded min-h-12"
+              >{`// placeholder`}</pre>
+
+              {html`
+                <script type="module">
+                const dateButton = document.getElementById("getDate");
+                const dateText = document.getElementById("dateText");
+
+                dateButton.addEventListener("click", async () => {
+                  const response = await fetch("/api/date");
+                  const data = await response.json();
+                  dateText.textContent = JSON.stringify(data, null, 2);
+                });
+                </script>
+              `}
+            </div>
+
+            <hr />
           </div>
         </div>
 
