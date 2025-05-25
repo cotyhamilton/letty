@@ -1,11 +1,16 @@
 import { Hono } from "hono";
 import { html } from "hono/html";
+import HelloAlert from "../components/hello-alert.tsx";
 
 const app = new Hono();
 
 app.get("/", (c) => {
+  const name = c.req.query("name") || "";
+
   return c.render(
     <div class="min-h-screen">
+      {name && <HelloAlert name={name} />}
+
       <div class="container mx-auto px-4 py-16">
         <div class="max-w-3xl mx-auto text-center space-y-8">
           <div class="animate-fade-in-down">
@@ -66,6 +71,9 @@ app.get("/", (c) => {
             </p>
           </div>
 
+          <hr />
+
+          <h2 class="text-3xl font-bold mb-6">vanilla js</h2>
           <div class="flex justify-center mt-12">
             <div class="flex gap-8">
               <button
@@ -85,6 +93,30 @@ app.get("/", (c) => {
               </button>
             </div>
           </div>
+
+          <hr />
+
+          <h2 class="text-3xl font-bold mb-6">form handling</h2>
+          <div class="mt-12">
+            <div class="card p-6 max-w-md mx-auto">
+              <form action="/" method="post" class="form grid gap-6">
+                <div class="grid gap-2">
+                  <label for="name">
+                    Enter your name:
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <hr />
         </div>
       </div>
 
@@ -92,7 +124,6 @@ app.get("/", (c) => {
         <script type="module">
         const addButton = document.getElementById("add");
         const subtractButton = document.getElementById("subtract");
-
         const count = document.getElementById("count");
 
         addButton.addEventListener("click", () => {
@@ -106,6 +137,12 @@ app.get("/", (c) => {
       `}
     </div>,
   );
+});
+
+app.post("/", async (c) => {
+  const formData = await c.req.parseBody();
+  const name = formData.name as string;
+  return c.redirect(`/?name=${encodeURIComponent(name)}`);
 });
 
 export default app;
