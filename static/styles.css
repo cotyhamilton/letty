@@ -224,11 +224,23 @@
   .static {
     position: static;
   }
+  .sticky {
+    position: sticky;
+  }
+  .inset-x-0 {
+    inset-inline: calc(var(--spacing) * 0);
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
+  }
+  .isolate {
+    isolation: isolate;
+  }
+  .z-10 {
+    z-index: 10;
   }
   .container {
     width: 100%;
@@ -266,14 +278,27 @@
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
+  .ml-auto {
+    margin-left: auto;
+  }
   .flex {
     display: flex;
   }
   .grid {
     display: grid;
   }
+  .size-8 {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+  }
+  .h-14 {
+    height: calc(var(--spacing) * 14);
+  }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-full {
+    width: 100%;
   }
   .max-w-3xl {
     max-width: var(--container-3xl);
@@ -281,11 +306,17 @@
   .max-w-md {
     max-width: var(--container-md);
   }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .items-center {
+    align-items: center;
   }
   .justify-center {
     justify-content: center;
@@ -315,6 +346,13 @@
   }
   .rounded {
     border-radius: 0.25rem;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .bg-background {
+    background-color: var(--color-background);
   }
   .bg-muted {
     background-color: var(--color-muted);
@@ -379,26 +417,9 @@
     --tw-numeric-spacing: tabular-nums;
     font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
   }
-  .transition-all {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-  .duration-300 {
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-  }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .hover\:-translate-y-1 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-translate-y: calc(var(--spacing) * -1);
-        translate: var(--tw-translate-x) var(--tw-translate-y);
-      }
-    }
   }
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
@@ -3122,6 +3143,11 @@
   inherits: false;
   initial-value: 0;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -3146,10 +3172,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-duration {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-ease {
   syntax: "*";
   inherits: false;
@@ -3168,11 +3190,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-tracking {
   syntax: "*";
@@ -3267,6 +3284,10 @@
   inherits: false;
   initial-value: 1;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-outline-style {
   syntax: "*";
   inherits: false;
@@ -3281,18 +3302,17 @@
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-ordinal: initial;
       --tw-slashed-zero: initial;
       --tw-numeric-figure: initial;
       --tw-numeric-spacing: initial;
       --tw-numeric-fraction: initial;
-      --tw-duration: initial;
       --tw-ease: initial;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-border-style: solid;
       --tw-tracking: initial;
       --tw-leading: initial;
       --tw-shadow: 0 0 #0000;
@@ -3313,6 +3333,7 @@
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
+      --tw-duration: initial;
       --tw-outline-style: solid;
     }
   }
