@@ -13,17 +13,15 @@ app.get("/", (c) => {
 
       <div class="container mx-auto px-4 py-16">
         <div class="max-w-3xl mx-auto text-center space-y-8">
-          <div class="animate-fade-in-down">
-            <h1 class="text-5xl font-extrabold mb-4">
-              letty
-            </h1>
-            <p class="text-xl">
-              A typescript project template based on traditional web practices
-            </p>
-          </div>
+          <h1 class="text-5xl font-extrabold mb-4">
+            letty
+          </h1>
+          <p class="text-xl">
+            A typescript project template based on traditional web practices
+          </p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div class="card transition-all duration-300 transform hover:-translate-y-1">
+            <div class="card">
               <header>
                 <div class="text-4xl mb-4">🦕</div>
                 <h2 class="text-xl font-bold mb-2">Deno</h2>
@@ -36,7 +34,7 @@ app.get("/", (c) => {
             </div>
 
             <div>
-              <div class="card transition-all duration-300 transform hover:-translate-y-1">
+              <div class="card">
                 <header>
                   <div class="text-4xl mb-4">🔥</div>
                   <h2 class="text-xl font-bold mb-2">Hono</h2>
@@ -49,7 +47,7 @@ app.get("/", (c) => {
               </div>
             </div>
 
-            <div class="card transition-all duration-300 transform hover:-translate-y-1">
+            <div class="card">
               <header>
                 <div class="text-4xl mb-4">🎨</div>
                 <h2 class="text-xl font-bold mb-2">Basecoat</h2>
