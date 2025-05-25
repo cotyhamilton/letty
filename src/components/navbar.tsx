@@ -9,6 +9,10 @@ export default function Navbar() {
             id="toggle-mode"
             type="button"
             class="ml-auto btn-icon-outline size-8"
+            aria-label="Toggle dark mode"
+            data-tooltip="Toggle dark mode"
+            data-side="bottom"
+            data-align="center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +41,10 @@ export default function Navbar() {
             class="btn-icon size-8"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Github Repository"
+            data-tooltip="Github Repository"
+            data-side="bottom"
+            data-align="end"
           >
             <svg
               width="1024"
