@@ -93,6 +93,21 @@ app.get("/", (c) => {
                   +1
                 </button>
               </div>
+              {html`
+                <script type="module">
+                const addButton = document.getElementById("add");
+                const subtractButton = document.getElementById("subtract");
+                const count = document.getElementById("count");
+
+                addButton.addEventListener("click", () => {
+                  count.textContent = +count.textContent + 1;
+                });
+
+                subtractButton.addEventListener("click", () => {
+                  count.textContent = +count.textContent - 1;
+                });
+                </script>
+              `}
             </div>
 
             <hr />
@@ -148,24 +163,65 @@ app.get("/", (c) => {
             </div>
 
             <hr />
+
+            <h2 class="text-3xl font-bold mb-6">stream data</h2>
+            <div class="mt-12">
+              <button
+                id="getStream"
+                type="button"
+                class="btn"
+              >
+                stream from <pre>/api/stream</pre>
+              </button>
+              <pre
+                id="streamText"
+                class="whitespace-pre-wrap text-start border bg-muted p-4 mt-8 rounded min-h-12"
+              >
+                {`// placeholder`}
+              </pre>
+
+              {html`
+                <script type="module">
+                const streamButton = document.getElementById("getStream");
+                const streamText = document.getElementById("streamText");
+
+                let controller = null;
+
+                streamButton.addEventListener("click", async () => {
+                  if (controller) {
+                    controller.abort();
+                  }
+
+                  streamText.textContent = "";
+                  controller = new AbortController();
+
+                  try {
+                    const res = await fetch("/api/stream", {
+                      signal: controller.signal,
+                    });
+
+                    const reader = res.body.getReader();
+                    const decoder = new TextDecoder();
+
+                    while (true) {
+                      const { value, done } = await reader.read();
+                      if (done) break;
+                      streamText.textContent += decoder.decode(value, { stream: true });
+                    }
+                  }
+                  catch(e) {
+                    if (e.name !== "AbortError") {
+                      console.error("Stream error:", e);
+                    }
+                  }
+                });
+                </script>
+              `}
+            </div>
+
+            <hr />
           </div>
         </div>
-
-        {html`
-          <script type="module">
-          const addButton = document.getElementById("add");
-          const subtractButton = document.getElementById("subtract");
-          const count = document.getElementById("count");
-
-          addButton.addEventListener("click", () => {
-            count.textContent = +count.textContent + 1;
-          });
-
-          subtractButton.addEventListener("click", () => {
-            count.textContent = +count.textContent - 1;
-          });
-          </script>
-        `}
       </div>
     </>,
   );
